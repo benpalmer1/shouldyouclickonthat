@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118289242-2"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-118289242-2');
+        </script>
+
+        <style>
+        body {background-color: black; text-align:center; font-family: Arial, sans-serif; font-weight: bold; color: white;}
+        input {width: 50%;}
+        </style>
+        
+        <title>Should I Click That?</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <br/>
+        <h1 id="title">Should you click on that?</h1>
+        <br/>
+        <input id="inputBox" type="url" placeholder="what's the link?"/>
+        <br/>
+        <br/>
+        <button id="button" type="button">Should you?</button>
+        <br/>
+        <img id="spinner" max-width="50%" src="orb.webp" alt="ai-loading" hidden>
+        <h1 id="result"></h1>
+        <br/>
+        <br/>
+        <p id="helper" hidden>go on, click it anyway:</p>
+        <a id="link"></a>
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- ad -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-1924126967997573"
+            data-ad-slot="7852711117"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+        <script>
+            document.getElementById("button").addEventListener("click", function(){
+                if (document.getElementById("inputBox").value != "")
+                {
+                    document.getElementById("result").innerHTML = "AI PROCESSING";
+                    document.getElementById("spinner").hidden = false;
+
+                    document.getElementById("title").hidden = true;
+                    document.getElementById("inputBox").hidden = true;
+                    document.getElementById("button").hidden = true;
+
+                    setTimeout(function () {
+                        if (Math.random() > 0.5)
+                        {
+                            document.getElementById("result").innerHTML = "probably not";
+                        }
+                        else {
+                            document.getElementById("result").innerHTML = "lmao sure";
+                        }
+                        document.getElementById("spinner").hidden = true;
+                        document.getElementById("helper").hidden = false;
+
+                        if (document.getElementById("inputBox").value.startsWith("http"))
+                        {
+                            document.getElementById("link").href = document.getElementById("inputBox").value;
+                            document.getElementById("link").innerHTML = document.getElementById("inputBox").value;
+                        }
+                        else {
+                            document.getElementById("link").href = "http://" + document.getElementById("inputBox").value;
+                            document.getElementById("link").innerHTML = "http://" + document.getElementById("inputBox").value;
+                        }
+                    }, 2500)
+                }
+            });
+        </script>
+    </body>
+</html>
